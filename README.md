@@ -1,98 +1,123 @@
-# 🌊 Water Quality Prediction using Machine Learning
+# 🌍 AICTE Internship Project – Water Quality Prediction (June 2025)
 
-This project focuses on predicting water quality indicators — specifically **nitrate concentration (NO₃)** — using historical data from the Southern Bug River. The dataset contains water quality measurements from multiple monitoring stations over time.
+This repository is part of the **AICTE Virtual Internship Program – June 2025**, organized by **Edunet Foundation** under the **Skills4Future** initiative and sponsored by **Shell**. It focuses on applying **Machine Learning** techniques to solve real-world **environmental analytics problems** like water quality forecasting.
+
+---
+
+## 🎯 Internship Overview
+
+- **Program**: AICTE Virtual Internship (Cycle 1)
+- **Duration**: June 16 – July 16, 2025 (1 Month)
+- **Trainer**: `XXXXXX` (Skills4Future)
+- **Sponsored by**: Shell
+- **Focus Area**: Environmental Analytics & Machine Learning (Green Skills)
+- **Project Title**: Water Quality Prediction using AI/ML
+
+---
+
+## 📁 Repository Structure
+
+Water_Quality_Prediction/
+├── Week_1/ # Data exploration, cleaning, and feature engineering
+├── Week_2/ # Modeling, training, and predictions
+├── dataset/ # Includes PB_All_2000_2021.csv
+├── model/ # Saved model .pkl files
+├── visuals/ # Plots and prediction outputs
+└── README.md # Project documentation
+
 
 ---
 
 ## 📌 Project Objective
 
-To develop a machine learning model that accurately predicts **NO₃ (nitrate)** levels based on other chemical properties in water such as:
-
-- O₂ (Dissolved Oxygen)
-- NO₂ (Nitrite)
-- SO₄ (Sulfate)
-- PO₄ (Phosphate)
-- CL (Chloride)
-- Date-based features: **month**, **year**
+To build a machine learning model that can predict **multiple water pollutant indicators** (O2, NO3, NO2, SO4, PO4, CL) using data collected from **22 monitoring stations** across different years.
 
 ---
 
-## 📁 Dataset
+## ⚙️ Technologies & Skills Used
 
-- Name: `PB_All_2000_2021.csv`
-- Source: Southern Bug River Monitoring Stations
-- Format: CSV with columns like `id`, `date`, and various chemical pollutants
-
----
-
-## ⚙️ Tools & Libraries
-
-- Python
-- Pandas
-- NumPy
-- Matplotlib & Seaborn (for visualization)
-- Scikit-learn (for machine learning models)
+- **Python** (Jupyter Notebook)
+- **Libraries**: pandas, numpy, matplotlib, seaborn, scikit-learn, joblib
+- **Skills Developed**:
+  - Exploratory Data Analysis (EDA)
+  - Data Cleaning & Preprocessing
+  - Multi-output Regression
+  - Model Evaluation (MSE, R²)
+  - Predictive Modeling
+  - Time-based Feature Engineering
 
 ---
 
-## 📈 ML Model Used
+## 🔧 Project Breakdown
 
-- **Random Forest Regressor**: A robust ensemble learning algorithm suitable for tabular data.
+### ✅ Week 1 – Data Understanding & Preprocessing
 
----
+- Loaded `PB_All_2000_2021.csv` dataset
+- Converted `date` column to datetime format
+- Extracted features: `year`, `month`
+- Selected important pollutants for modeling
+- Checked and summarized missing values
 
-## 🔧 Steps Performed
+### 🤖 Week 2 – MultiOutput Modeling
 
-1. **Data Loading** and preprocessing
-2. **Datetime Conversion** and feature engineering (`year`, `month`)
-3. **Missing Value Handling**
-4. **Feature Selection** (`O2`, `NO2`, `SO4`, `PO4`, `CL`, `month`, `year`)
-5. **Train-Test Split** (80:20 ratio)
-6. **Model Training** using Random Forest
-7. **Evaluation** using MAE, RMSE, and R² Score
-8. **Visualization** of actual vs predicted NO₃ concentrations
-
----
-
-## 📊 Model Evaluation
-
-- **MAE**: Mean Absolute Error
-- **RMSE**: Root Mean Squared Error
-- **R² Score**: Coefficient of Determination
-
-These metrics help assess the accuracy and generalization of the trained model.
+- Dropped missing values for selected pollutants
+- Selected features: `id` (station) and `year`
+- Applied one-hot encoding for `id`
+- Trained a **MultiOutput RandomForestRegressor**
+- Evaluated predictions using **MSE** and **R²**
+- Performed sample predictions for new inputs
+- Saved model and feature structure using `joblib`
 
 ---
 
-## 📉 Output Visualization
+## 📊 Evaluation Metrics
 
-A scatter plot compares actual vs predicted NO₃ values to help visually analyze model accuracy.
+Example performance of model on test set:
 
----
 
-## 📌 How to Run
-
-1. Clone this repository
-2. Open `Water_Quality_Prediction.ipynb` in Google Colab or Jupyter Notebook
-3. Upload the dataset: `PB_All_2000_2021.csv`
-4. Run the notebook cells step by step
-
----
-
-## 📚 Improvisations Done
-
-- Extracted time-based features to capture seasonal trends
-- Cleaned the dataset by removing missing values
-- Selected key pollutant indicators as input features
-- Visualized model predictions for better interpretation
-- Modularized code for readability and reproducibility
+O2: MSE = 22.21, R² = -0.01
+NO3: MSE = 18.15, R² = 0.51
+NO2: MSE = 10.60, R² = -78.42
+SO4: MSE = 2412.14, R² = 0.41
+PO4: MSE = 0.38, R² = 0.32
+CL: MSE = 34882.81, R² = 0.73
 
 ---
 
-## 📦 Future Improvements
+## 🔍 Sample Prediction Output
 
-- Add more advanced models (e.g. LSTM, XGBoost)
-- Deploy using Streamlit or Flask as a web app
-- Predict other indicators or use a multi-output model
-- Implement real-time water quality alert system
+Predict pollutant levels for a station and year:
 
+```python
+Predicted pollutant levels for station '22' in 2022:
+ O2: 12.60
+ NO3: 6.89
+ NO2: 0.13
+ SO4: 143.08
+ PO4: 0.50
+ CL: 67.33
+
+💾 Artifacts Saved
+Trained model: pollution_model.pkl[Drive link : ]
+
+Feature structure: model.columns.pkl
+
+📚 Key Learnings & Takeaways
+How to clean and preprocess real-world environmental data
+
+Feature engineering using time-based information
+
+Multi-output regression with RandomForestRegressor
+
+Model deployment basics using joblib
+
+Hands-on end-to-end project workflow
+
+📦 Future Scope
+Add more input features like Suspended, NH4, BSK5
+
+Improve model using Gradient Boosting or Neural Networks
+
+Create a Streamlit dashboard for water quality monitoring
+
+Deploy as a web app using Flask or FastAPI
