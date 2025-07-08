@@ -1,3 +1,4 @@
+
 # 🌍 AICTE Internship Project – Water Quality Prediction (June 2025)
 
 This repository is part of the **AICTE Virtual Internship Program – June 2025**, organized by **Edunet Foundation** under the **Skills4Future** initiative and sponsored by **Shell**. This project uses **Machine Learning (ML)** to predict water quality indicators based on environmental monitoring data.
@@ -24,7 +25,6 @@ Water_Quality_Prediction:
   model: "Trained model files (.pkl)"
   visuals: "Visual outputs and plots"
   README.md: "Project documentation"
-
 
 ---
 
@@ -96,7 +96,6 @@ Predicted pollutant levels for station `'22'` in **2022**:
 - **PO₄**: `0.50`  
 - **CL**: `67.33`
 
-
 ---
 
 ## 💾 Saved Artifacts
@@ -105,6 +104,16 @@ Predicted pollutant levels for station `'22'` in **2022**:
 - ✅ `model.columns.pkl` – Feature columns used during training  
 
 ---
+## 💻 Week 3 – Web Interface Deployment with Streamlit
+
+In Week 3, the trained model was deployed using a user-friendly **Streamlit web application** that allows real-time predictions.
+
+### ✅ Key Features of the App:
+- User inputs for **year** and **station ID**
+- Automated **OneHotEncoding** of input features
+- Loads pre-trained model (`pollution_model.pkl`) and feature structure (`model_columns.pkl`)
+- Predicts concentrations of: `O2`, `NO3`, `NO2`, `SO4`, `PO4`, and `CL`
+- Displays predicted values in a clean layout
 
 ## 📚 Key Learnings
 
@@ -128,4 +137,3 @@ Predicted pollutant levels for station `'22'` in **2022**:
 
 *Suvetha S*  
 Internship Cycle: June 16 – July 16, 2025  
-
